@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html>
   <head>
@@ -8,13 +7,8 @@
   <body>
 
     <button class="js-character-ajax">
-      Make an AJAX for characters
+      Display all characters
     </button>
-
-    <button class="js-add-rey">
-      Add Rey to the list of characters
-    </button>
-
 
     <div>
       <a class="js-stop-link" href="http://starwars.wikia.com/wiki/Main_Page">
@@ -22,15 +16,22 @@
       </a>
 
       <form>
-        <input type="text" name="the_text_input">
-        <button class="js-submit-button">
-          Submit this form
+      	<label>Name</label>
+        <input type="text" name="name_input" id="name">
+        <br>
+       	<label>Occupation</label>
+        <input type="text" name="occupation_input" id="occupation">
+        <br>
+       	<label>Weapon</label>
+        <input type="text" name="weapon_input" id="weapon">
+        <br>
+        <button class="js-add-new">
+          Add new character
         </button>
       </form>
     </div>
 
     <ul class="js-character-list"></ul>
-
 
   </body>
 </html>

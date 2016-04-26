@@ -20,39 +20,37 @@ $(document).on("ready", function () {
 
   });
 
-
-  $(".js-add-rey").on("click", function () {
-    var rey = {
-      name: "Rey",
-      occupation: "Scavenger",
-      weapon: "Scavenged Staff"
+ $(".js-add-new").on("click", function (saveCharacter) {
+    
+    var newCharacter = {
+      name: $('#name').val(),
+      occupation: $('#occupation').val(),
+      weapon: $('#weapon').val()
     };
+    console.log(newCharacter);
+    saveCharacter.preventDefault();
+
+    alert("FORM SUBMITTED");
 
     $.ajax({
       type: "post",
       url: "https://ironhack-characters.herokuapp.com/characters",
-      data: rey,
+      data: newCharacter,
 
       success: function () {
-        alert("Rey has been added successfully.")
+        alert("The new character has been added successfully.")
       },
       error: function (error) {
         console.log("FAIL");
         console.log(error.responseJSON);
       }
     });
-  });
+ });
 
   $(".js-stop-link").on("click", function (event) {
     event.preventDefault();
 
     alert("Did you you want to visit Wookiepedia? Nope.");
-  });
-
-  $(".js-submit-button").on("click", function (blah) {
-    blah.preventDefault();
-
-    alert("FORM SUBMITTED");
   });
 
 });
@@ -63,6 +61,7 @@ function displayCharacters (characters) {
       <li>
         <p>Name: ${oneCharacter.name}</p>
         <p>Occupation: ${oneCharacter.occupation}</p>
+        <p>Weapon: ${oneCharacter.weapon}</p>
       </li>`;
 
     $(".js-character-list").append(html);
