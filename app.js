@@ -30,8 +30,6 @@ $(document).on("ready", function () {
     console.log(newCharacter);
     saveCharacter.preventDefault();
 
-    alert("FORM SUBMITTED");
-
     $.ajax({
       type: "post",
       url: "https://ironhack-characters.herokuapp.com/characters",
@@ -39,6 +37,8 @@ $(document).on("ready", function () {
 
       success: function () {
         alert("The new character has been added successfully.")
+        displayCharacters([ newCharacter ]);
+
       },
       error: function (error) {
         console.log("FAIL");
